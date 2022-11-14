@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  web:
+    build: ./web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./web:/code
+    ports:
+      - "8000:8000"
+
+  jupyter:
+    build: ./ai
+    volumes:
+      - ./ai:/code
+    ports:
+      - "8888:8888"
+
